@@ -267,13 +267,13 @@
           var setShowing = function () {
             $scope.showingLow = ((options.pagingCurrentPage - 1) * options.pagingPageSize) + 1;
             $scope.showingHigh = Math.min(options.pagingCurrentPage * options.pagingPageSize, options.totalItems);
-          }
+          };
 
           var getMaxPages = function () {
             return (options.totalItems === 0)
             ? 1
             : Math.ceil(options.totalItems / options.pagingPageSize);
-          }
+          };
 
           var deregT = $scope.$watch('grid.options.totalItems + grid.options.pagingPageSize'
             , function () {
@@ -312,11 +312,11 @@
             } else {
               options.pagingCurrentPage++;
             }
-          }
+          };
 
           $scope.pageBackward = function () {
             options.pagingCurrentPage = Math.max(options.pagingCurrentPage - 1, 1);
-          }
+          };
 
           $scope.pageToFirst = function () {
             options.pagingCurrentPage = 1;
