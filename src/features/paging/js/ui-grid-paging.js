@@ -202,7 +202,7 @@
     function (gridUtil, uiGridPagingService) {
     /**
      * @ngdoc property
-     * @name headerCellTemplate
+     * @name pagingTemplate
      * @propertyOf ui.grid.class:GridOptions
      * @description a custom template for the pager.  The default
      * is ui-grid/ui-grid-paging
@@ -274,7 +274,7 @@
             : Math.ceil(options.totalItems / options.pagingPageSize);
           };
 
-          var deregS = $scope.$watch('grid.options.totalItems + grid.options.pagingPageSize'
+          var deregT = $scope.$watch('grid.options.totalItems + grid.options.pagingPageSize'
             , function () {
               $scope.currentMaxPages = getMaxPages();
               setShowing();
@@ -301,7 +301,7 @@
           );
 
           $scope.$on('$destroy', function() {
-            deregS();
+            deregT();
             deregP();
           });
 
