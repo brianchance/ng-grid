@@ -274,14 +274,14 @@
             : Math.ceil(options.totalItems / options.pagingPageSize);
           };
 
-          var deregS = $scope.$watchGroup(['grid.options.totalItems', 'grid.options.pagingPageSize']
+          var deregS = $scope.$watch('grid.options.totalItems + grid.options.pagingPageSize'
             , function () {
               $scope.currentMaxPages = getMaxPages();
               setShowing();
             }
           );
 
-          var deregP = $scope.$watchGroup(['grid.options.pagingCurrentPage', 'grid.options.pagingPageSize']
+          var deregP = $scope.$watch('grid.options.pagingCurrentPage + grid.options.pagingPageSize'
             , function (newValues, oldValues) {
               if (newValues === oldValues) return;
 
